@@ -11,9 +11,9 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "ip-listener=ip_notify.listener:main",
-            "ip-writer=ip_notify.writer:main",
-            "ip-notify=ip_notify.notifier:main",
+            "ip_listener=ip_notify.listener:main",
+            "ip_writer=ip_notify.writer:main",
+            "ip_notify=ip_notify.notifier:main",
         ],
     },
 )
