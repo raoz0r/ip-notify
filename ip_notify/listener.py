@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 from pyroute2 import IPRoute
 from .writer import write_ip_if_changed
 from .notifier import send_telegram
@@ -16,3 +15,6 @@ def main():
             for k, v in addr:
                 if k == "IFA_ADDRESS":
                     do_notify(v)
+
+if __name__ == "__main__":
+    main()
