@@ -1,18 +1,18 @@
-import os
-import socket
-import requests
+import os, socket, requests
 from pathlib import Path
 from dotenv import load_dotenv
 
-HERE = Path(__file__).parent
-load_dotenv(HERE.parent / ".env.ip_notify")
+class Notifier:
+    def __init__(self):
+        self.last_ip = None
+        load_dotenv(Path(__file__).parent.parent/'.env.ip_notify')
+    
+    def send_telegram(self, ip):
+        if ip != self.last_ip:
+            requests.post(
+                f"https://api.telegram.org/bot{os.getenv('BOT_TOKEN')}/sendMessage",
+                data={"chat_id": os.getenv('CHAT_ID'), "text": f"👻 {socket.gethostname()} 🌐 {ip}"}
+            )
+            self.last_ip = ip
 
-BOT_TOKEN = os.getenv("BOT_TOKEN")
-CHAT_ID   = os.getenv("CHAT_ID")
-
-def send_telegram(ip: str):
-    host = socket.gethostname()
-    msg  = f"👻 Host: {host}\\n🌐 IP: {ip}"
-    url  = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
-    resp = requests.post(url, data={"chat_id": CHAT_ID, "text": msg})
-    resp.raise_for_status()
+notifier = Notifier()
