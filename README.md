@@ -1,4 +1,4 @@
-# ip-notify
+# IP Notify
 
 👻 A minimal Python utility to monitor a machine’s public or local IP and send updates via Telegram.
 
