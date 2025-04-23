@@ -5,13 +5,13 @@ Designed for headless Debian machines (like my cursed server Wraith) with dynami
 
 ## Project Structure
 
-ip-notifier/
-├──ip_nofifier/
-|   └──__init__.py
-|   └──listerner.py        # Main loop, listens for IP changes
-|   └──writer.py           # Handles writing IP to file
-|   └──notifier.py         # Sends Telegram notifications
-├──.env.ip_notify      # Contains BOT_TOKEN, CHAT_ID, and LAST_IP_FILE
+ip-notifier/</br>
+├──ip_nofifier/</br>
+|....└──__init__.py</br>
+|....└──listerner.py        # Main loop, listens for IP changes</br>
+|....└──writer.py           # Handles writing IP to file</br>
+|....└──notifier.py         # Sends Telegram notifications</br>
+├──.env.ip_notify      # Contains BOT_TOKEN, CHAT_ID, and LAST_IP_FILE</br>
 
 ## How It Works
 
